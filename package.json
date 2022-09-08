@@ -1,0 +1,19 @@
+{
+  "name": "nest-typeorm-history",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/widmofazowe/nest-typeorm-history.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/widmofazowe/nest-typeorm-history/issues"
+  },
+  "homepage": "https://github.com/widmofazowe/nest-typeorm-history#readme"
+}
