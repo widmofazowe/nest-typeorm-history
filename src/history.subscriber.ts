@@ -7,7 +7,7 @@ import { RelationMetadata } from 'typeorm/metadata/RelationMetadata';
 import { RequestContext } from './request-context';
 import { TYPEORM_HISTORY_COLUMNS } from './track-field-history.decorator';
 
-const debug = debugFactory('nest-typeorm-history:subscriber')
+const debug = debugFactory('nest-typeorm-history:subscriber');
 
 interface FieldChange {
   field: string;
@@ -25,10 +25,7 @@ export const createHistorySubscriber = <E extends { id: string }, H extends Reco
 export class HistoryEntitySubscriber<EntityType extends { id: string }, HistoryEntityType>
   implements EntitySubscriberInterface<EntityType>
 {
-  constructor(
-    private readonly entity,
-    private readonly historyEntity,
-  ) {}
+  constructor(private readonly entity, private readonly historyEntity) {}
 
   public listenTo() {
     return this.entity;
@@ -125,19 +122,14 @@ export class HistoryEntitySubscriber<EntityType extends { id: string }, HistoryE
     return [];
   }
 
-  private async createHistoryEntries(
-    manager: EntityManager,
-    objectId: string,
-    fieldChanges: FieldChange[],
-  ) {
+  private async createHistoryEntries(manager: EntityManager, objectId: string, fieldChanges: FieldChange[]) {
     try {
       const currentUser = RequestContext.currentUser();
 
       await manager.save(
         this.historyEntity,
         fieldChanges.map(
-          fieldChange =>
-            ({ objectId, ...fieldChange, modifiedById: currentUser?.id } as unknown as HistoryEntityType),
+          fieldChange => ({ objectId, ...fieldChange, modifiedById: currentUser?.id } as unknown as HistoryEntityType),
         ),
       );
     } catch (e) {
