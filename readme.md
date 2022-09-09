@@ -43,3 +43,26 @@ export class User {
 }
 ```
 
+After that we can create our history entity
+```
+@Entity()
+@HistoryFor(User)
+export class UserHistory extends HistoryEntity {}
+```
+
+By defualt no fields are tracked, so now we need to go to our user entity and modify it accordingly:
+```
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  @TrackFieldHistory()
+  email: string;
+
+  @Column()
+  @TrackFieldHistory()
+  name: string;
+}
+```
