@@ -22,7 +22,7 @@ In our root module import TypeOrmHistoryModule and add middleware for all paths:
   ...
 })
 export class AppModule implements NestModule {
-  configure(consumer: MiddlewareCOnsumer) {
+  configure(consumer: MiddlewareConsumer) {
     consumer.apply(RequestContextMiddleware).forRouter({ path: '*', method: RequestMethod.ALL });
   }
 }

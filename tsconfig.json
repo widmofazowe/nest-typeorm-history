@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
