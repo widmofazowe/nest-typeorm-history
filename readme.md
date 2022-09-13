@@ -69,3 +69,6 @@ export class User {
   name: string;
 }
 ```
+
+Now when using method `save` on repository it will trigger storying field entries updates, eg:
+![history-record](./assets/history-record.png)
